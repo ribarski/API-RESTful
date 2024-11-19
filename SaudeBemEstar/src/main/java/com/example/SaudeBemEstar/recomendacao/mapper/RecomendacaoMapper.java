@@ -1,17 +1,13 @@
 package com.example.SaudeBemEstar.recomendacao.mapper;
 
+import com.example.SaudeBemEstar.recomendacao.dto.RecomendacaoDTO;
+import com.example.SaudeBemEstar.recomendacao.model.Recomendacao;
 import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
+import org.mapstruct.Mapping;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface RecomendacaoMapper {
 
-    // Instância do Mapper
-    RecomendacaoMapper INSTANCE = Mappers.getMapper(RecomendacaoMapper.class);
-
-    // Método para converter de Recomendacao para RecomendacaoDTO
-    RecomendacaoDTO toDTO(Recomendacao recomendacao);
-
-    // Método para converter de RecomendacaoDTO para Recomendacao
-    Recomendacao toEntity(RecomendacaoDTO dto);
+    RecomendacaoDTO toRecomendacaoDTO(Recomendacao recomendacao);
+    Recomendacao toRecomendacao(RecomendacaoDTO recomendacaoDTO);
 }

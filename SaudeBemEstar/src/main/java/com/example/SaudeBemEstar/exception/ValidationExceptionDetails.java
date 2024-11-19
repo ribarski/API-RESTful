@@ -1,9 +1,11 @@
 package com.example.SaudeBemEstar.exception;
 
-import lombok.Builder;
+import lombok.Getter;
+import lombok.experimental.SuperBuilder;
 
-@Builder
+@Getter
+@SuperBuilder
 public class ValidationExceptionDetails extends ExceptionDetails {
-    private String fields;
-    private String fieldsMessage;
+    private final String campos;  // Campos inválidos
+    private final String mensagens;  // Mensagens de erro para os campos
 }

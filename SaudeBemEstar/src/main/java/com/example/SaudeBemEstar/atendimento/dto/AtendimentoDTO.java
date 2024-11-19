@@ -9,14 +9,9 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 public class AtendimentoDTO {
-
     private LocalDate data;
-
     private String medico;
-
     private String paciente;
-
     private String diagnostico;
-
     private String observacoes;
 }

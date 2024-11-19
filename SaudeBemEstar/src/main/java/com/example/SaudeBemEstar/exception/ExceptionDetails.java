@@ -1,16 +1,16 @@
 package com.example.SaudeBemEstar.exception;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
 
-@Data
-@Builder
+@Getter
+@SuperBuilder
 public class ExceptionDetails {
-    private String title;
-    private int status;
-    private String details;
-    private String developerMessage;
-    private LocalDateTime timestamp;
+    private final String titulo;
+    private final int status;
+    private final String detalhes;
+    private final String mensagemDesenvolvedor;
+    private final LocalDateTime timestamp;
 }

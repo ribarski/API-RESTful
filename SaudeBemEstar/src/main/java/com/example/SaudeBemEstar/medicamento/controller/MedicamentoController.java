@@ -1,51 +1,46 @@
 package com.example.SaudeBemEstar.medicamento.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import com.example.SaudeBemEstar.medicamento.dto.MedicamentoDTO;
+import com.example.SaudeBemEstar.medicamento.service.MedicamentoService;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
-import java.util.UUID;
 
-@Api(tags = "Medicamentos")
 @RestController
 @RequestMapping("/medicamentos")
+@RequiredArgsConstructor
 public class MedicamentoController {
 
     private final MedicamentoService medicamentoService;
 
-    public MedicamentoController(MedicamentoService medicamentoService) {
-        this.medicamentoService = medicamentoService;
-    }
-
-    @ApiOperation(value = "Retorna todos os medicamentos")
     @GetMapping
-    public ResponseEntity<List<MedicamentoDTO>> getAllMedicamentos() {
-        List<MedicamentoDTO> medicamentos = medicamentoService.findAll();
-        return ResponseEntity.ok(medicamentos);
+    public ResponseEntity<List<MedicamentoDTO>> buscarTodos() {
+        return ResponseEntity.ok(medicamentoService.buscarTodos());
     }
 
-    @ApiOperation(value = "Cria um novo medicamento")
+    @GetMapping("/{id}")
+    public ResponseEntity<MedicamentoDTO> buscarPorId(@PathVariable Long id) {
+        return ResponseEntity.ok(medicamentoService.buscarPorId(id));
+    }
+
     @PostMapping
-    public ResponseEntity<MedicamentoDTO> createMedicamento(@Valid @RequestBody MedicamentoDTO medicamentoDTO) {
-        MedicamentoDTO createdMedicamento = medicamentoService.create(medicamentoDTO);
-        return new ResponseEntity<>(createdMedicamento, HttpStatus.CREATED);
+    public ResponseEntity<MedicamentoDTO> criarMedicamento(@RequestBody @Valid MedicamentoDTO medicamentoDTO) {
+        return new ResponseEntity<>(medicamentoService.criarMedicamento(medicamentoDTO), HttpStatus.CREATED);
     }
 
-    @ApiOperation(value = "Atualiza um medicamento existente")
     @PutMapping("/{id}")
-    public ResponseEntity<MedicamentoDTO> updateMedicamento(@PathVariable UUID id, @Valid @RequestBody MedicamentoDTO medicamentoDTO) {
-        MedicamentoDTO updatedMedicamento = medicamentoService.update(id, medicamentoDTO);
-        return ResponseEntity.ok(updatedMedicamento);
+    public ResponseEntity<Void> atualizarMedicamento(@PathVariable Long id, @RequestBody @Valid MedicamentoDTO medicamentoDTO) {
+        medicamentoService.atualizarMedicamento(id, medicamentoDTO);
+        return ResponseEntity.noContent().build();
     }
 
-    @ApiOperation(value = "Deleta um medicamento")
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteMedicamento(@PathVariable UUID id) {
-        medicamentoService.delete(id);
+    public ResponseEntity<Void> removerMedicamento(@PathVariable Long id) {
+        medicamentoService.removerMedicamento(id);
         return ResponseEntity.noContent().build();
     }
 }

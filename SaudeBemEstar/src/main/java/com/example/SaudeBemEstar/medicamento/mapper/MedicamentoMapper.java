@@ -1,17 +1,15 @@
 package com.example.SaudeBemEstar.medicamento.mapper;
 
+import com.example.SaudeBemEstar.medicamento.dto.MedicamentoDTO;
+import com.example.SaudeBemEstar.medicamento.model.Medicamento;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface MedicamentoMapper {
-
-    // Instância do Mapper
     MedicamentoMapper INSTANCE = Mappers.getMapper(MedicamentoMapper.class);
 
-    // Método para converter de Medicamento para MedicamentoDTO
-    MedicamentoDTO toDTO(Medicamento medicamento);
+    Medicamento toMedicamento(MedicamentoDTO medicamentoDTO);
 
-    // Método para converter de MedicamentoDTO para Medicamento
-    Medicamento toEntity(MedicamentoDTO dto);
+    MedicamentoDTO toMedicamentoDTO(Medicamento medicamento);
 }

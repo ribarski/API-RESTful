@@ -1,6 +1,6 @@
 package com.example.SaudeBemEstar.atendimento.repository;
 
-import com.example.projetoSpring.domain.Atendimento;
+import com.example.SaudeBemEstar.atendimento.model.Atendimento;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

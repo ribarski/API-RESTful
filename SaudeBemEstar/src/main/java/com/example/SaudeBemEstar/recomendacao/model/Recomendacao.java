@@ -1,35 +1,24 @@
 package com.example.SaudeBemEstar.recomendacao.model;
 
+import com.example.SaudeBemEstar.atendimento.model.Atendimento;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.util.UUID;
+import lombok.*;
 
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class Recomendacao {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private String data;
-    private String medico;
-    private String paciente;
-    private String orientacao;
-    private Integer duracao;
-
-    @ManyToOne
-    @JoinColumn(name = "medicamento_id")
-    private Medicamento medicamento;  // Relacionamento com Medicamento
+    private String descricao;
+    private String tipo;
 
     @ManyToOne
     @JoinColumn(name = "atendimento_id")
-    private Atendimento atendimento;  // Relacionamento com Atendimento
-
+    private Atendimento atendimento;
 }

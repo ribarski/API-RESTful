@@ -1,14 +1,15 @@
 package com.example.SaudeBemEstar.medicamento.dto;
 
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Past;
-import java.time.LocalDate;
+import lombok.*;
 
-public record MedicamentoDTO(
-        @NotNull String nome,
-        @NotNull String dosagem,
-        @NotNull String frequencia,
-        @NotNull String tipo,
-        @Past LocalDate dataValidade
-) {}
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class MedicamentoDTO {
+    private Long id;
+    private String nome;
+    private String principioAtivo;
+    private String dosagem;
+    private Integer estoque;
+}

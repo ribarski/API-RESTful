@@ -19,7 +19,6 @@ public class AtendimentoController {
 
     private final AtendimentoService atendimentoService;
 
-    // Buscar todos os atendimentos com paginação
     @GetMapping
     public ResponseEntity<Page<AtendimentoDTO>> buscarAtendimentos(Pageable pageable) {
         return ResponseEntity.ok(atendimentoService.buscarAtendimentos(pageable));

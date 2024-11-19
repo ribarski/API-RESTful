@@ -1,28 +1,29 @@
 package com.example.SaudeBemEstar.medicamento.model;
 
+import com.example.SaudeBemEstar.atendimento.model.Atendimento;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import java.util.UUID;
+import java.util.List;
 
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class Medicamento {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String nome;
-    private String dosagem;
-    private String frequencia;
-    private String tipo;
 
-    @Column(name = "data_validade")
-    private String dataValidade;
+    private String principioAtivo;
+
+    private String dosagem;
+
+    private Integer estoque;
+
+    @ManyToMany(mappedBy = "medicamentos")
+    private List<Atendimento> atendimentos;
 }

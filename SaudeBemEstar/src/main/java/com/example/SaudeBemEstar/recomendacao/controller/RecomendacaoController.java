@@ -1,51 +1,47 @@
 package com.example.SaudeBemEstar.recomendacao.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import com.example.SaudeBemEstar.recomendacao.dto.RecomendacaoDTO;
+import com.example.SaudeBemEstar.recomendacao.service.RecomendacaoService;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
-import java.util.UUID;
 
-@Api(tags = "Recomendações")
 @RestController
 @RequestMapping("/recomendacoes")
+@RequiredArgsConstructor
 public class RecomendacaoController {
 
     private final RecomendacaoService recomendacaoService;
 
-    public RecomendacaoController(RecomendacaoService recomendacaoService) {
-        this.recomendacaoService = recomendacaoService;
+    @GetMapping("/atendimento/{atendimentoId}")
+    public ResponseEntity<List<RecomendacaoDTO>> buscarPorAtendimento(@PathVariable Long atendimentoId) {
+        return ResponseEntity.ok(recomendacaoService.buscarPorAtendimento(atendimentoId));
     }
 
-    @ApiOperation(value = "Retorna todas as recomendações")
-    @GetMapping
-    public ResponseEntity<List<RecomendacaoDTO>> getAllRecomendacoes() {
-        List<RecomendacaoDTO> recomendacoes = recomendacaoService.findAll();
-        return ResponseEntity.ok(recomendacoes);
+    @GetMapping("/{id}")
+    public ResponseEntity<RecomendacaoDTO> buscarPorId(@PathVariable Long id) {
+        return ResponseEntity.ok(recomendacaoService.buscarPorId(id));
     }
 
-    @ApiOperation(value = "Cria uma nova recomendação")
     @PostMapping
-    public ResponseEntity<RecomendacaoDTO> createRecomendacao(@Valid @RequestBody RecomendacaoDTO recomendacaoDTO) {
-        RecomendacaoDTO createdRecomendacao = recomendacaoService.create(recomendacaoDTO);
-        return new ResponseEntity<>(createdRecomendacao, HttpStatus.CREATED);
+    public ResponseEntity<RecomendacaoDTO> criarRecomendacao(@RequestBody @Valid RecomendacaoDTO recomendacaoDTO) {
+        return new ResponseEntity<>(recomendacaoService.criarRecomendacao(recomendacaoDTO), HttpStatus.CREATED);
     }
 
-    @ApiOperation(value = "Atualiza uma recomendação existente")
     @PutMapping("/{id}")
-    public ResponseEntity<RecomendacaoDTO> updateRecomendacao(@PathVariable UUID id, @Valid @RequestBody RecomendacaoDTO recomendacaoDTO) {
-        RecomendacaoDTO updatedRecomendacao = recomendacaoService.update(id, recomendacaoDTO);
-        return ResponseEntity.ok(updatedRecomendacao);
+    public ResponseEntity<Void> atualizarRecomendacao(@PathVariable Long id, @RequestBody @Valid RecomendacaoDTO recomendacaoDTO) {
+        recomendacaoService.atualizarRecomendacao(id, recomendacaoDTO);
+        return ResponseEntity.noContent().build();
     }
 
-    @ApiOperation(value = "Deleta uma recomendação")
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteRecomendacao(@PathVariable UUID id) {
-        recomendacaoService.delete(id);
+    public ResponseEntity<Void> removerRecomendacao(@PathVariable Long id) {
+        recomendacaoService.removerRecomendacao(id);
         return ResponseEntity.noContent().build();
     }
 }
+
