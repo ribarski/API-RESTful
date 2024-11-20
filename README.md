@@ -1,6 +1,17 @@
 # API-RESTful
 API RESTful para processamento de requisições de um cliente HTTP
 
+Desenvolvimento de um sistema focado em Saúde e Bem Estar, o qual possue 3 entidades, sendo elas: paciente, atendimento e medicação. Todas as entidades podem realizar 4 operações distintas (POST, DELETE, GET e PUT) e possuem suas próprias rotas. O projeto visa como objeto proporcionar ao paciente e ao médico um sistema eficaz, capaz de melhorar a eficiência dos atendimentos e melhorar o controle dos medicamentos que poderão ser recomendados durante os atendimentos realizados.
+
+___
+
+<br/>
+
+<h2>INSTRUÇÕES PARA EXECUÇÃO DO PROJETO </h2>
+descrição a ser feita
+
+___
+
 <br/>
 
 link swagger: http://localhost:8080/swagger-ui/index.html#/
