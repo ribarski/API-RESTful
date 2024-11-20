@@ -9,19 +9,19 @@ link swagger: http://localhost:8080/swagger-ui/index.html#/
 
 ![Controller recomendação (120)](https://github.com/user-attachments/assets/4e2609fb-6d42-4d7e-94e4-79af46a6eabb)
 ## (GET) /recomendacoes/{id}
-descrição
+Retorna em um array os dados com as recomendações: id da recomendação, descrição da recomendação, tipo da recomendação e o id do atentimento realizado.
   
 ## (PUT) /recomendacoes/{id}
-descrição
+Atualiza os dados da recomendação com base no id da recomendação.
 
 ## (DELETE) /recomendacoes/{id}
-descrição
+Deleta os dados da recomendação com base no id da recomendação.
 
 ## (POST) /recomendacoes
-descrição
+Cria um array com os seguintes campos: id da recomendação, descrição da recomendação, tipo da recomendação e o id do atentimento realizado.
 
 ## (GET) /recomendacoes/atendimento/{atendimentoId}
-descrição
+Pode ser utilizado para mostrar as recomendações feitaa, associadas ao id específico do atendimento, listando várias recomendações realizadas em um atendimento.
 
 <br/>
 
