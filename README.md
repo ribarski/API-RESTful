@@ -21,7 +21,7 @@ Deleta os dados da recomendação com base no id da recomendação.
 Cria um array com os seguintes campos: id da recomendação, descrição da recomendação, tipo da recomendação e o id do atentimento realizado.
 
 ## (GET) /recomendacoes/atendimento/{atendimentoId}
-Pode ser utilizado para mostrar as recomendações feitaa, associadas ao id específico do atendimento, listando várias recomendações realizadas em um atendimento.
+Pode ser utilizado para mostrar as recomendações feitas, associadas ao id específico do atendimento, listando várias recomendações realizadas em um atendimento.
 
 <br/>
 
@@ -30,19 +30,19 @@ Pode ser utilizado para mostrar as recomendações feitaa, associadas ao id espe
 ![Controller medicamento(121)](https://github.com/user-attachments/assets/1d220bd3-b1ac-41de-aabc-ca20f576ad66)
 
 ## (GET) /medicamentos/{id}
-descrição
+Retorna em um array os dados com as seguintes informações do medicamento: id  do medicamento, nome do medicamento, principio ativo do medicamento, a dosagem do medicamento e a quantidade do medicamento em estoque.
 
 ## (PUT) /medicamentos/{id}
-descrição
+Atualiza os dados do medicamento com base no id da recomendação.
 
 ## (DELETE) /medicamentos/{id}
-descrição
+Deleta os dados do medicamento com base no id da recomendação.
 
 ## (GET) /medicamentos
-descrição
+Pode ser utilizado para mostrar todos os medicamentos do sistema.
 
 ## (POST) /medicamentos
-descrição
+Cria um array com os seguintes campos:  id  do medicamento, nome do medicamento, principio ativo do medicamento, a dosagem do medicamento e a quantidade do medicamento em estoque.
 
 <br/>
 
