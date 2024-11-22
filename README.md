@@ -14,7 +14,10 @@ ___
 
 <br/>
 
-link swagger: http://localhost:8080/swagger-ui/index.html#/
+link swagger:
+Local: http://localhost:8080/swagger-ui/index.html#/
+Web: https://api-restful-ppr5.onrender.com/swagger-ui/index.html#
+
 
 <h2>RECOMENDAÇÃO CONTROLLER</h2>
 
