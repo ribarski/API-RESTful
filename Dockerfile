@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copiar o arquivo JAR gerado pelo Maven
-COPY target/SaudeBemEstar-0.0.1-SNAPSHOT.jar app.jar
+COPY SaudeBemEstar/target/SaudeBemEstar-0.0.1-SNAPSHOT.jar app.jar
 
 # Configurar porta (se necessário)
 EXPOSE 8080
