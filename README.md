@@ -8,7 +8,7 @@ ___
 <br/>
 
 <h2>INSTRUÇÕES PARA EXECUÇÃO DO PROJETO </h2>
-descrição a ser feita
+Porta padrão 8080
 
 ___
 
