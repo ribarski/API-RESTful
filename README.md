@@ -16,6 +16,7 @@ ___
 
 link swagger:
 Local: http://localhost:8080/swagger-ui/index.html#/
+
 Web: https://api-restful-ppr5.onrender.com/swagger-ui/index.html#
 
 
@@ -33,6 +34,16 @@ Deleta os dados da recomendação com base no id da recomendação.
 
 ## (POST) /recomendacoes
 Cria um array com os seguintes campos: id da recomendação, descrição da recomendação, tipo da recomendação e o id do atentimento realizado.
+
+{
+
+  "atendimentoId": 1,
+  
+  "medicamentoId": 1,
+  
+  "observacao": "tomar de 8 em 8 horas"
+  
+}
 
 ## (GET) /recomendacoes/atendimento/{atendimentoId}
 Pode ser utilizado para mostrar as recomendações feitas, associadas ao id específico do atendimento, podendo listar várias recomendações realizadas em um atendimento.
@@ -58,6 +69,18 @@ Pode ser utilizado para mostrar todos os medicamentos do sistema.
 ## (POST) /medicamentos
 Cria um array com os seguintes campos: id  do medicamento, nome do medicamento, principio ativo do medicamento, a dosagem do medicamento e a quantidade do medicamento em estoque.
 
+{
+
+  "nome": "paracetamol",
+  
+  "principioAtivo": "paracetamol",
+  
+  "dosagem": "1cmprimido",
+  
+  "estoque": 10
+  
+}
+
 <br/>
 
 <h2>ATENDIMENTO CONTROLLER</h2>
@@ -78,6 +101,19 @@ Pode ser utilizado para mostrar todos os atendimentos do sistema.
 
 ## (POST) /atendimentos
 Cria um array com os seguintes campos:data do atendimento, médico responsável pelo atendimento, nome do paciente atendido, diagnóstico que o paciente recebeu do médico e observações.
+
+{
+  "data": "2024-11-26",
+  
+  "medico": "dt backend",
+  
+  "paciente": "aluno ferido",
+  
+  "diagnostico": "nota ruim",
+  
+  "observacoes": "precisa estudar"
+  
+}
 
 ## (GET) /atendimentos/find
 Pode ser utilizado para mostrar todos os atendimentos do sistema utilizando filtros de algum campo da tabela, permitindo buscas mais específicas.
