@@ -69,7 +69,7 @@ Cria um array com os seguintes campos: id da recomendação, descrição da reco
 ## (GET) /recomendacoes/atendimento/{atendimentoId}
 Status: 200 OK
 
-Pode ser utilizado para mostrar as recomendações feitas, associadas ao id específico do atendimento, podendo listar várias recomendações realizadas em um atendimento.
+É utilizado para mostrar as recomendações feitas, associadas ao id específico do atendimento, podendo listar várias recomendações realizadas em um atendimento.
 
 <br/>
 
@@ -107,7 +107,7 @@ Deleta os dados do medicamento com base no id da recomendação.
 ## (GET) /medicamentos
 Status: 200 OK
 
-Pode ser utilizado para mostrar todos os medicamentos do sistema.
+É utilizado para mostrar todos os medicamentos do sistema.
 
 ## (POST) /medicamentos
 Status: 201 CREATED
@@ -164,7 +164,7 @@ Deleta os dados do atendimento com base no id do atendimento.
 ## (GET) /atendimentos
 Status: 200 OK
 
-Pode ser utilizado para mostrar todos os atendimentos do sistema.
+É utilizado para mostrar todos os atendimentos do sistema.
 
 ## (POST) /atendimentos
 Status: 201 CREATED
@@ -188,4 +188,4 @@ Cria um array com os seguintes campos:data do atendimento, médico responsável 
 ## (GET) /atendimentos/find
 Status: 200 OK
 
-Pode ser utilizado para mostrar todos os atendimentos do sistema utilizando filtros de algum campo da tabela, permitindo buscas mais específicas.
+É utilizado para mostrar todos os atendimentos do sistema, permitindo buscas por paginações.
