@@ -8,6 +8,7 @@ ___
 <br/>
 
 <h2>INSTRUÇÕES PARA EXECUÇÃO DO PROJETO </h2>
+Execute o docker-compose up
 Porta padrão 8080
 
 ___
@@ -145,4 +146,6 @@ Cria um array com os seguintes campos:data do atendimento, médico responsável 
 }
 
 ## (GET) /atendimentos/find
+Status: 200 OK
+
 Pode ser utilizado para mostrar todos os atendimentos do sistema utilizando filtros de algum campo da tabela, permitindo buscas mais específicas.
