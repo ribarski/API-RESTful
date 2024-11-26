@@ -24,7 +24,8 @@ Web: https://api-restful-ppr5.onrender.com/swagger-ui/index.html#
 
 <h2>RECOMENDAÇÃO CONTROLLER</h2>
 
-![Controller recomendação (120)](https://github.com/user-attachments/assets/4e2609fb-6d42-4d7e-94e4-79af46a6eabb)
+![Controller recomendação (120)](![image](https://github.com/user-attachments/assets/6360b003-fe59-46e9-bef5-e599b5e66d7a)
+)
 ## (GET) /recomendacoes/{id}
 Status: 200 OK
 
