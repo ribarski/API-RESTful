@@ -32,7 +32,7 @@ Status: 200 OK
 Retorna em um array com os seguintes dados das recomendações: id da recomendação, descrição da recomendação, tipo da recomendação e o id do atentimento realizado.
   
 ## (PUT) /recomendacoes/{id}
-Status: 200 OK
+Status: 201 CREATED
 
 Atualiza os dados da recomendação com base no id da recomendação.
 
@@ -83,7 +83,7 @@ Status: 200 OK
 Retorna em um array os dados com as seguintes informações do medicamento: id do medicamento, nome do medicamento, princípio ativo do medicamento, a dosagem do medicamento e a quantidade do medicamento em estoque.
 
 ## (PUT) /medicamentos/{id}
-Status: 200 OK
+Status: 201 CREATED
 
 Atualiza os dados do medicamento com base no id da recomendação.
 
@@ -138,7 +138,7 @@ Status: 200 OK
 Retorna em um array com os seguintes dados do atendimento: data do atendimento, médico responsável pelo atendimento, nome do paciente atendido, diagnóstico que o paciente recebeu do médico e observações.
 
 ## (PUT) /atendimentos/{id}
-Status: 200 OK
+Status: 201 CREATED
 
 Atualiza os dados do atendimento com base no id do atendimento.
 
