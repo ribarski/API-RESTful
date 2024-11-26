@@ -9,6 +9,7 @@ ___
 
 <h2>INSTRUÇÕES PARA EXECUÇÃO DO PROJETO </h2>
 Execute o docker-compose up
+
 Porta padrão 8080
 
 ___
@@ -55,6 +56,8 @@ Cria um array com os seguintes campos: id da recomendação, descrição da reco
 }
 
 ## (GET) /recomendacoes/atendimento/{atendimentoId}
+Status: 200 OK
+
 Pode ser utilizado para mostrar as recomendações feitas, associadas ao id específico do atendimento, podendo listar várias recomendações realizadas em um atendimento.
 
 <br/>
