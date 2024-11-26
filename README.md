@@ -103,6 +103,7 @@ Pode ser utilizado para mostrar todos os atendimentos do sistema.
 Cria um array com os seguintes campos:data do atendimento, médico responsável pelo atendimento, nome do paciente atendido, diagnóstico que o paciente recebeu do médico e observações.
 
 {
+
   "data": "2024-11-26",
   
   "medico": "dt backend",
