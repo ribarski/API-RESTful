@@ -25,8 +25,7 @@ Web: https://api-restful-ppr5.onrender.com/swagger-ui/index.html#
 
 <h2>RECOMENDAÇÃO CONTROLLER</h2>
 
-![Controller recomendação (120)](![image](https://github.com/user-attachments/assets/6360b003-fe59-46e9-bef5-e599b5e66d7a)
-)
+![Controller recomendação](https://github.com/user-attachments/assets/6360b003-fe59-46e9-bef5-e599b5e66d7a)
 ## (GET) /recomendacoes/{id}
 Status: 200 OK
 
@@ -38,9 +37,13 @@ Status: 200 OK
 Atualiza os dados da recomendação com base no id da recomendação.
 
 {
+
   "atendimentoId": 2,
+  
   "medicamentoId": 3,
+  
   "observacao": "alteração de medicamento"
+  
 }
 
 ## (DELETE) /recomendacoes/{id}
@@ -85,10 +88,15 @@ Status: 200 OK
 Atualiza os dados do medicamento com base no id da recomendação.
 
 {
+
   "nome": "string",
+  
   "principioAtivo": "string",
+  
   "dosagem": "string",
+  
   "estoque": 0
+  
 }
 
 ## (DELETE) /medicamentos/{id}
@@ -135,11 +143,17 @@ Status: 200 OK
 Atualiza os dados do atendimento com base no id do atendimento.
 
 {
+
   "data": "2024-11-26",
+  
   "medico": "string",
+  
   "paciente": "string",
+  
   "diagnostico": "string",
+  
   "observacoes": "string"
+  
 }
 
 ## (DELETE) /atendimentos/{id}
