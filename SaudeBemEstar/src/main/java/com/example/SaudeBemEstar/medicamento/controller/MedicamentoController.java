@@ -1,6 +1,7 @@
 package com.example.SaudeBemEstar.medicamento.controller;
 
 import com.example.SaudeBemEstar.medicamento.dto.MedicamentoDTO;
+import com.example.SaudeBemEstar.medicamento.dto.MedicamentoUpdateDTO;
 import com.example.SaudeBemEstar.medicamento.service.MedicamentoService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -29,14 +30,17 @@ public class MedicamentoController {
 
     @PostMapping
     public ResponseEntity<MedicamentoDTO> criarMedicamento(@RequestBody @Valid MedicamentoDTO medicamentoDTO) {
-        return new ResponseEntity<>(medicamentoService.criarMedicamento(medicamentoDTO), HttpStatus.CREATED);
+        MedicamentoDTO criado = medicamentoService.criarMedicamento(medicamentoDTO);
+        return ResponseEntity.ok(criado);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> atualizarMedicamento(@PathVariable Long id, @RequestBody @Valid MedicamentoDTO medicamentoDTO) {
-        medicamentoService.atualizarMedicamento(id, medicamentoDTO);
+    public ResponseEntity<Void> atualizarMedicamento(@PathVariable Long id, @RequestBody @Valid MedicamentoUpdateDTO MedicamentoUpdateDTO) {
+        medicamentoService.atualizarMedicamento(id, MedicamentoUpdateDTO);
         return ResponseEntity.noContent().build();
     }
+
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> removerMedicamento(@PathVariable Long id) {

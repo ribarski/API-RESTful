@@ -1,7 +1,10 @@
 package com.example.SaudeBemEstar.atendimento.controller;
 
+import java.util.List;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -31,14 +34,18 @@ public class AtendimentoController {
     private final AtendimentoService atendimentoService;
 
     @GetMapping
-    public ResponseEntity<Page<AtendimentoDTO>> buscarAtendimentos(Pageable pageable) {
-        return ResponseEntity.ok(atendimentoService.buscarAtendimentos(pageable));
+    public ResponseEntity<List<AtendimentoDTO>> buscarAtendimentos() {
+        return ResponseEntity.ok(atendimentoService.buscarAtendimentos());
     }
 
-    // Buscar atendimento por nome (com paginação)
+    // Buscar atendimento pageable
     @GetMapping("/find")
-    public ResponseEntity<Page<AtendimentoDTO>> buscarAtendimentosPorNome(@RequestParam String name, Pageable pageable) {
-        return ResponseEntity.ok(atendimentoService.buscarAtendimentosPorNome(name, pageable));
+    public ResponseEntity<Page<AtendimentoDTO>> buscarAtendimentos(
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            @RequestParam(value = "size", defaultValue = "10") int size) {
+
+        Pageable pageable = PageRequest.of(page, size, Sort.unsorted());
+        return ResponseEntity.ok(atendimentoService.buscarAtendimentos(pageable));
     }
 
     // Buscar atendimento por ID

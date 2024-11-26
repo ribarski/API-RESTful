@@ -1,14 +1,15 @@
 package com.example.SaudeBemEstar.recomendacao.dto;
 
-import lombok.*;
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 public class RecomendacaoDTO {
-    private Long id;
-    private String descricao;
-    private String tipo;
+    @NotNull
     private Long atendimentoId;
+
+    @NotNull
+    private Long medicamentoId;
+
+    private String observacao;
 }

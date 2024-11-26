@@ -2,12 +2,11 @@ package com.example.SaudeBemEstar.recomendacao.controller;
 
 import com.example.SaudeBemEstar.recomendacao.dto.RecomendacaoDTO;
 import com.example.SaudeBemEstar.recomendacao.service.RecomendacaoService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import jakarta.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -17,19 +16,19 @@ public class RecomendacaoController {
 
     private final RecomendacaoService recomendacaoService;
 
-    @GetMapping("/atendimento/{atendimentoId}")
-    public ResponseEntity<List<RecomendacaoDTO>> buscarPorAtendimento(@PathVariable Long atendimentoId) {
-        return ResponseEntity.ok(recomendacaoService.buscarPorAtendimento(atendimentoId));
+    @PostMapping
+    public ResponseEntity<RecomendacaoDTO> criarRecomendacao(@RequestBody @Valid RecomendacaoDTO recomendacaoDTO) {
+        return ResponseEntity.ok(recomendacaoService.criarRecomendacao(recomendacaoDTO));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<RecomendacaoDTO>> listarRecomendacoes() {
+        return ResponseEntity.ok(recomendacaoService.listarRecomendacoes());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<RecomendacaoDTO> buscarPorId(@PathVariable Long id) {
         return ResponseEntity.ok(recomendacaoService.buscarPorId(id));
-    }
-
-    @PostMapping
-    public ResponseEntity<RecomendacaoDTO> criarRecomendacao(@RequestBody @Valid RecomendacaoDTO recomendacaoDTO) {
-        return new ResponseEntity<>(recomendacaoService.criarRecomendacao(recomendacaoDTO), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
@@ -39,9 +38,8 @@ public class RecomendacaoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> removerRecomendacao(@PathVariable Long id) {
-        recomendacaoService.removerRecomendacao(id);
+    public ResponseEntity<Void> deletarRecomendacao(@PathVariable Long id) {
+        recomendacaoService.deletarRecomendacao(id);
         return ResponseEntity.noContent().build();
     }
 }
-

@@ -3,6 +3,7 @@ package com.example.SaudeBemEstar.atendimento.dto;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @AllArgsConstructor

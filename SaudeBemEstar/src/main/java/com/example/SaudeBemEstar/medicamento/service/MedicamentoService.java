@@ -2,6 +2,7 @@ package com.example.SaudeBemEstar.medicamento.service;
 
 import com.example.SaudeBemEstar.exception.BadRequestException;
 import com.example.SaudeBemEstar.medicamento.dto.MedicamentoDTO;
+import com.example.SaudeBemEstar.medicamento.dto.MedicamentoUpdateDTO;
 import com.example.SaudeBemEstar.medicamento.mapper.MedicamentoMapper;
 import com.example.SaudeBemEstar.medicamento.model.Medicamento;
 import com.example.SaudeBemEstar.medicamento.repository.MedicamentoRepository;
@@ -10,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -27,7 +29,8 @@ public class MedicamentoService {
     @Transactional
     public MedicamentoDTO criarMedicamento(MedicamentoDTO medicamentoDTO) {
         Medicamento medicamento = medicamentoMapper.toMedicamento(medicamentoDTO);
-        return medicamentoMapper.toMedicamentoDTO(medicamentoRepository.save(medicamento));
+        Medicamento salvo = medicamentoRepository.save(medicamento);
+        return medicamentoMapper.toMedicamentoDTO(salvo);
     }
 
     public MedicamentoDTO buscarPorId(Long id) {
@@ -37,11 +40,15 @@ public class MedicamentoService {
     }
 
     @Transactional
-    public void atualizarMedicamento(Long id, MedicamentoDTO medicamentoDTO) {
+    public void atualizarMedicamento(Long id, MedicamentoUpdateDTO medicamentoUpdateDTO) {
         Medicamento medicamentoExistente = medicamentoRepository.findById(id)
-                .orElseThrow(() -> new BadRequestException("Medicamento não encontrado"));
+                .orElseThrow(() -> new BadRequestException("Medicamento com ID " + id + " não encontrado"));
 
-        medicamentoMapper.toMedicamento(medicamentoDTO).setId(medicamentoExistente.getId());
+        Optional.ofNullable(medicamentoUpdateDTO.getNome()).ifPresent(medicamentoExistente::setNome);
+        Optional.ofNullable(medicamentoUpdateDTO.getPrincipioAtivo()).ifPresent(medicamentoExistente::setPrincipioAtivo);
+        Optional.ofNullable(medicamentoUpdateDTO.getDosagem()).ifPresent(medicamentoExistente::setDosagem);
+        Optional.ofNullable(medicamentoUpdateDTO.getEstoque()).ifPresent(medicamentoExistente::setEstoque);
+
         medicamentoRepository.save(medicamentoExistente);
     }
 
